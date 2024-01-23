@@ -7,6 +7,9 @@
 - Vite
 - TailwindCSS
 - Daisy UI
+- i18n
+- Vue-router
+- Pinia
 
 ## Recommended IDEs Setup
 
