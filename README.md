@@ -1,8 +1,9 @@
 # Vue 3 Boilerplate template
 
 ## Project contains these technology
+
 - Vue 3
-- TypeScript 
+- TypeScript
 - Vite
 - TailwindCSS
 - Daisy UI
@@ -10,6 +11,7 @@
 ## Recommended IDEs Setup
 
 ### Free to use IDE
+
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
 ### Premium to use IDE
