@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { watch } from 'vue'
 import { ref } from 'vue'
+import { changeLocale, getLocale } from '@/utils/index'
 
 interface Props {
   msg: string
@@ -9,6 +11,16 @@ interface Props {
 defineProps<Props>()
 
 const count = ref(0)
+const lang = ref(getLocale())
+
+watch(
+  () => lang.value,
+  (val) => {
+    if (val) {
+      changeLocale(val)
+    }
+  },
+)
 </script>
 
 <template>
@@ -16,22 +28,13 @@ const count = ref(0)
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
-    <p>Edit<code>components/HelloWorld.vue</code> to test HMR</p>
   </div>
 
-  <p>
-    Check out<a
-      href="https://vuejs.org/guide/quick-start.html#local"
-      target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <select v-model="lang" class="select select-info w-full max-w-xs">
+    <option disabled selected value="">Select language</option>
+    <option value="en">English</option>
+    <option value="uz">Uzbek</option>
+  </select>
 </template>
 
 <style scoped>
