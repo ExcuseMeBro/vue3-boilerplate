@@ -10,6 +10,8 @@
 - i18n
 - Vue-router
 - Pinia
+- VueUse (most useful composables libs)
+- maska (input mask libs)
 
 ## Recommended IDEs Setup
 

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { watch } from 'vue'
 import { ref } from 'vue'
-import { changeLocale, getLocale } from '@/utils/index'
+import CLanguageSwitcher from './common/CLanguageSwitcher.vue'
 
 interface Props {
   msg: string
@@ -11,16 +10,6 @@ interface Props {
 defineProps<Props>()
 
 const count = ref(0)
-const lang = ref(getLocale())
-
-watch(
-  () => lang.value,
-  (val) => {
-    if (val) {
-      changeLocale(val)
-    }
-  },
-)
 </script>
 
 <template>
@@ -28,13 +17,17 @@ watch(
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
+    <br />
+    <input
+      v-maska
+      data-maska="#-#-#"
+      type="text"
+      placeholder="0-0-0"
+      class="input input-bordered w-full max-w-xs"
+    />
+    <br />
+    <CLanguageSwitcher />
   </div>
-
-  <select v-model="lang" class="select select-info w-full max-w-xs">
-    <option disabled selected value="">Select language</option>
-    <option value="en">English</option>
-    <option value="uz">Uzbek</option>
-  </select>
 </template>
 
 <style scoped>

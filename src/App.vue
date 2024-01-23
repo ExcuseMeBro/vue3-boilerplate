@@ -1,30 +1,28 @@
-<script setup lang="ts">
-import HelloWorld from './core/components/HelloWorld.vue'
-</script>
-
 <template>
-  <div class="flex items-center flex-col justify-center h-screen w-full">
-    <div>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/svg/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
+  <router-view v-slot="{ Component }">
+    <div :key="detectLayout">
+      <component :is="detectLayout">
+        <Component :is="Component" />
+      </component>
     </div>
-
-    <HelloWorld :msg="$t('hi')" />
-  </div>
+  </router-view>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup lang="ts">
+import LDefault from '@/layouts/LDefault.vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const layouts = new Map<any, any>()
+
+// *** You can set below another layout components
+layouts.set('default', LDefault)
+
+const detectLayout = computed(() => {
+  return layouts.get(route.meta.layout) || LDefault
+})
+</script>
+
+<style scoped></style>
