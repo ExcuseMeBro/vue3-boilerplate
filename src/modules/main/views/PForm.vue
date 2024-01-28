@@ -43,6 +43,7 @@
         Create Account
       </button>
     </vee-form>
+    <pre>{{ form }}</pre>
   </div>
 </template>
 
@@ -107,6 +108,7 @@ const formFields = ref<IFormField[]>([
   },
 ])
 
+const form = ref()
 function register(values: IForm) {
   reg_show_alert.value = true
   reg_in_submission.value = true
@@ -116,7 +118,7 @@ function register(values: IForm) {
   reg_alert_variant.value = 'bg-blue-500'
   reg_alert_msg.value = 'Success! Your account has been created.'
 
-  console.log(values)
+  form.value = values
 }
 </script>
 
