@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-base-100">
+  <div class="navbar bg-base-100 sticky top-0">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -22,14 +22,15 @@
           tabindex="0"
           class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li><a>Homepage</a></li>
-          <li><a>Portfolio</a></li>
-          <li><a>About</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/form">Form Validation</a></li>
         </ul>
       </div>
     </div>
     <div class="navbar-center">
-      <a class="btn btn-ghost text-xl">daisyUI</a>
+      <a href="/" class="btn btn-ghost text-xl" to="/"
+        >Vue 3 Boilerplate | {{ $t('hi') }} ;)</a
+      >
     </div>
     <div class="navbar-end">
       <CThemeSwitcher />
