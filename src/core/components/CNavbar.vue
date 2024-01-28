@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import CThemeSwitcher from './common/CThemeSwitcher.vue'
+import CThemeSwitcher from '@/core/components/common/CThemeSwitcher.vue'
 </script>
 
 <style scoped></style>

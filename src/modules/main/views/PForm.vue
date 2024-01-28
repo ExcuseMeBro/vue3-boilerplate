@@ -5,12 +5,7 @@
       :initial-values="userData"
       @submit="register"
     >
-      <FInput
-        v-for="field in formFields"
-        :key="field.name"
-        :attrs="field"
-        :opt-attrs="field?.optAttrs"
-      />
+      <FInput v-for="field in formFields" :key="field.name" :attrs="field" />
 
       <!-- Country -->
       <label class="form-control min-w-80">
