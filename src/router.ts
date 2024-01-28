@@ -5,12 +5,14 @@ const routes: Array<RouteRecordRaw> = [
   ...MainRoutes,
   {
     path: '/:pathMatch(.*)*',
+    name: '404',
     meta: {
       layout: 'default',
     },
     component: () => import('@/modules/PError.vue'),
   },
 ]
+
 const router = createRouter({
   history: createWebHistory(),
   routes,
@@ -19,4 +21,5 @@ const router = createRouter({
 router.beforeEach(async (to, from) => {
   // Navigation guard here
 })
+
 export default router

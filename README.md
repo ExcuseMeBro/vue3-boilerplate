@@ -9,7 +9,7 @@
 - Daisy UI
 - i18n
 - Vue-router
-- Pinia
+- Pinia (Write Composition API way)
 - VueUse (most useful composables libs)
 - maska (input mask libs)
 
