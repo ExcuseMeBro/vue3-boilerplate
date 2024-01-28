@@ -10,9 +10,10 @@
 - i18n
 - Vue-router
 - Pinia (Write Composition API way)
-- VueUse (most useful composables libs)
+- VueUse (most useful composables libs) 🤝
 - maska (input mask libs)
-- VeeValidate (form validation)
+- VeeValidate (form validation) 🚨
+- Nuxt Icon component added (using svg icons next level 🚀)
 
 ## Recommended IDEs Setup
 
