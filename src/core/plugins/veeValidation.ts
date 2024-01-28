@@ -19,12 +19,12 @@ import {
 } from '@vee-validate/rules'
 
 export default {
-  install(app) {
+  install(app: any) {
     app.component('VeeForm', VeeForm)
     app.component('VeeField', VeeField)
     app.component('ErrorMessage', ErrorMessage)
 
-    // *** Write any validation rules here ***
+    // *** Write any validation messages here ***
     defineRule('required', required)
     defineRule('min', min)
     defineRule('max', max)
@@ -50,11 +50,10 @@ export default {
           excluded: 'This field is not allowed.',
           country_excluded: 'We do not allow users from this location',
           password_mismatch: `This field ${context.field} does not match.`,
+          invalid: `The field ${context.field} is invalid`,
         }
-        const message = messages[context.rule.name]
-          ? messages[context.rule.name]
-          : `The field ${context.field} is invalid`
-        return message
+
+        return eval(`messages.${context?.rule?.name ?? 'invalid'}`)
       },
       validateOnBlur: true,
       validateOnChange: true,

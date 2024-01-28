@@ -18,7 +18,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async () => {
   // Navigation guard here
 })
 
