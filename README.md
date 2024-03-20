@@ -13,7 +13,6 @@
 - VueUse (most useful composables libs) 🤝
 - maska (input mask libs)
 - VeeValidate (form validation) 🚨
-- Nuxt Icon component added (using svg icons next level 🚀)
 
 ## Recommended IDEs Setup
 
