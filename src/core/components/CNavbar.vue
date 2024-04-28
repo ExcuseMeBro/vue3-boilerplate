@@ -3,7 +3,7 @@
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-<!--          <UIcon name="ph:list" size="xl" />-->
+          <!--          <UIcon name="ph:list" size="xl" />-->
         </div>
         <ul
           tabindex="0"
@@ -22,11 +22,11 @@
     <div class="navbar-end">
       <CThemeSwitcher />
       <button class="btn btn-ghost btn-circle">
-<!--        <UIcon name="ph:magnifying-glass" size="xl" />-->
+        <!--        <UIcon name="ph:magnifying-glass" size="xl" />-->
       </button>
       <button class="btn btn-ghost btn-circle">
         <div class="indicator">
-<!--          <UIcon name="ph:bell" size="xl" />-->
+          <!--          <UIcon name="ph:bell" size="xl" />-->
           <span class="badge badge-xs badge-primary indicator-item"></span>
         </div>
       </button>

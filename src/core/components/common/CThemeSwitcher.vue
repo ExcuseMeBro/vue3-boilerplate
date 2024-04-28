@@ -2,12 +2,6 @@
   <label class="swap swap-rotate">
     <!-- this hidden checkbox controls the state -->
     <input type="checkbox" @click="toggleTheme" />
-
-    <!-- sun icon -->
-<!--    <UIcon name="ph:sun" size="2xl" class="swap-on" />-->
-
-    <!-- moon icon -->
-<!--    <UIcon name="ph:moon" size="2xl" class="swap-off" />-->
   </label>
 </template>
 

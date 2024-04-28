@@ -12,7 +12,7 @@
 - Pinia (Write Composition API way)
 - VueUse (most useful composables libs) 🤝
 - maska (input mask libs)
-- VeeValidate (form validation) 🚨
+- Vuelidate (form validation) 🚨
 
 ## Recommended IDEs Setup
 
