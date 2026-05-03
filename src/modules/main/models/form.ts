@@ -3,5 +3,6 @@ export interface IForm {
   email: string
   age: string
   password: string
+  password_confirmation: string
   country: string
 }

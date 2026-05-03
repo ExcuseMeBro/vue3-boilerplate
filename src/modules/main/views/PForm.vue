@@ -1,61 +1,60 @@
 <template>
-  <div class="flex items-center justify-center h-screen w-full">
+  <main class="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-base-200 px-6 py-12">
     <vee-form
+      class="card w-full max-w-md border border-base-300 bg-base-100 shadow-xl"
       :validation-schema="schema"
       :initial-values="userData"
       @submit="register"
     >
-      <FInput v-for="field in formFields" :key="field.name" :attrs="field" />
+      <div class="card-body">
+        <h1 class="card-title text-2xl">{{ t('form.title') }}</h1>
 
-      <!-- Country -->
-      <label class="form-control min-w-80">
-        <div class="label">
-          <span class="label-text">Country</span>
+        <div v-if="alertMessage" class="alert" :class="alertVariant" role="alert">
+          <span>{{ alertMessage }}</span>
         </div>
-        <vee-field
-          as="select"
-          name="country"
-          class="select select-bordered w-full max-w-xs"
-        >
-          <option value="USA">USA</option>
-          <option value="Mexico">Mexico</option>
-          <option value="Germany">Germany</option>
-          <option value="Africa">Africa</option>
-        </vee-field>
-        <div class="label">
-          <span class="label-text-alt"
-            ><ErrorMessage class="text-red-600 text-xs" name="country"
-          /></span>
-        </div>
-      </label>
 
-      <button
-        :disabled="reg_in_submission"
-        class="shadow-lg mt-3 pt-3 pb-3 w-full text-white bg-indigo-500 hover:bg-indigo-400 rounded-full cursor-pointer"
-        type="submit"
-        value="Create account"
-      >
-        Create Account
-      </button>
+        <FInput v-for="field in formFields" :key="field.name" :attrs="field" />
+
+        <label class="form-control min-w-80">
+          <span class="label pb-1">
+            <span class="label-text">{{ t('form.country') }}</span>
+          </span>
+          <vee-field as="select" name="country" class="select select-bordered w-full max-w-xs">
+            <option v-for="country in countries" :key="country" :value="country">
+              {{ country }}
+            </option>
+          </vee-field>
+          <span class="label pt-1">
+            <ErrorMessage class="label-text-alt text-xs text-error" name="country" />
+          </span>
+        </label>
+
+        <button :disabled="isSubmitting" class="btn btn-primary mt-3 w-full" type="submit">
+          <span v-if="isSubmitting" class="loading loading-spinner loading-sm"></span>
+          {{ t('form.submit') }}
+        </button>
+
+        <pre v-if="form" class="mt-4 overflow-auto rounded-box bg-base-200 p-4 text-xs">{{ form }}</pre>
+      </div>
     </vee-form>
-    <pre>{{ form }}</pre>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { IFormField } from '@/core/models'
+
 import FInput from '@/core/components/common/form/FInput.vue'
-import { IForm } from '../models/form'
+import type { IFormField } from '@/core/models'
+import type { IForm } from '@/modules/main/models/form'
 
 const { t } = useI18n()
 
 const schema = reactive({
   username: 'required|min:3|max:50|alpha_spaces',
-  email: 'required|min:3|max:20|email',
+  email: 'required|min:3|max:50|email',
   age: 'required|min_value:1|max_value:100',
-  password: 'required',
+  password: 'required|min:8',
   password_confirmation: 'password_mismatch:@password',
   country: 'required|country_excluded:Africa',
 })
@@ -63,58 +62,55 @@ const schema = reactive({
 const userData = reactive({
   country: 'USA',
 })
+const countries = ['USA', 'Mexico', 'Germany', 'Africa']
 
-const reg_in_submission = ref(false)
-const reg_show_alert = ref(false)
-const reg_alert_variant = ref('bg-indigo-500')
-const reg_alert_msg = ref('Please wait! Account is being registered.')
+const isSubmitting = ref(false)
+const alertVariant = ref('alert-info')
+const alertMessage = ref('')
+const form = ref<IForm | null>(null)
 
-const formFields = ref<IFormField[]>([
+const formFields = computed<IFormField[]>(() => [
   {
     name: 'username',
     type: 'text',
-    placeholder: 'Enter username',
-    label: t('username'),
+    placeholder: t('form.placeholders.username'),
+    label: t('form.fields.username'),
   },
   {
     name: 'email',
     type: 'email',
-    placeholder: 'Enter email',
-    label: t('email'),
+    placeholder: t('form.placeholders.email'),
+    label: t('form.fields.email'),
   },
   {
     name: 'age',
     type: 'number',
-    placeholder: 'Enter age',
-    label: t('age'),
+    placeholder: t('form.placeholders.age'),
+    label: t('form.fields.age'),
     mask: '###',
   },
   {
     name: 'password',
     type: 'password',
-    placeholder: 'Enter password',
-    label: t('password'),
+    placeholder: t('form.placeholders.password'),
+    label: t('form.fields.password'),
   },
   {
     name: 'password_confirmation',
     type: 'password',
-    placeholder: 'Enter password confirm',
-    label: t('password_confirmation'),
+    placeholder: t('form.placeholders.passwordConfirmation'),
+    label: t('form.fields.passwordConfirmation'),
   },
 ])
 
-const form = ref()
 function register(values: IForm) {
-  reg_show_alert.value = true
-  reg_in_submission.value = true
-  reg_alert_variant.value = 'bg-indigo-500'
-  reg_alert_msg.value = 'Please wait! Your account is being created.'
-
-  reg_alert_variant.value = 'bg-blue-500'
-  reg_alert_msg.value = 'Success! Your account has been created.'
+  isSubmitting.value = true
+  alertVariant.value = 'alert-info'
+  alertMessage.value = t('form.pleaseWait')
 
   form.value = values
+  alertVariant.value = 'alert-success'
+  alertMessage.value = t('form.success')
+  isSubmitting.value = false
 }
 </script>
-
-<style scoped></style>

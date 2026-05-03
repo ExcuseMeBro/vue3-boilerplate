@@ -1,39 +1,27 @@
 <template>
-  <label class="swap swap-rotate">
-    <!-- this hidden checkbox controls the state -->
-    <input type="checkbox" @click="toggleTheme" />
-
-    <!-- sun icon -->
-<!--    <UIcon name="ph:sun" size="2xl" class="swap-on" />-->
-
-    <!-- moon icon -->
-<!--    <UIcon name="ph:moon" size="2xl" class="swap-off" />-->
-  </label>
+  <button type="button" class="btn btn-ghost btn-circle" :aria-label="t('theme.toggle')" @click="toggleTheme">
+    <span aria-hidden="true">{{ theme === 'light' ? '🌙' : '☀️' }}</span>
+  </button>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const theme = ref(
-  localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark',
-)
+type Theme = 'light' | 'dark'
 
-const html = document.querySelector('html')
+const { t } = useI18n()
+const theme = ref<Theme>((localStorage.getItem('theme') as Theme | null) ?? 'dark')
 
-const toggleTheme = () => {
-  if (theme.value === 'light') {
-    theme.value = 'dark'
-    localStorage.setItem('theme', 'dark')
-  } else {
-    theme.value = 'light'
-    localStorage.setItem('theme', 'light')
-  }
-  html?.setAttribute('data-theme', theme.value)
+function applyTheme(value: Theme) {
+  localStorage.setItem('theme', value)
+  document.documentElement.setAttribute('data-theme', value)
 }
 
-onMounted(() => {
-  html?.setAttribute('data-theme', theme.value ?? 'dark')
-})
-</script>
+function toggleTheme() {
+  theme.value = theme.value === 'light' ? 'dark' : 'light'
+  applyTheme(theme.value)
+}
 
-<style lang="scss" scoped></style>
+onMounted(() => applyTheme(theme.value))
+</script>

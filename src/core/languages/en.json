@@ -1,3 +1,68 @@
 {
-  "hi": "Hello"
+  "app": {
+    "name": "Vue 3 Boilerplate",
+    "tagline": "Modern starter for scalable apps"
+  },
+  "nav": {
+    "home": "Home",
+    "form": "Form validation",
+    "openMenu": "Open menu",
+    "search": "Search",
+    "notifications": "Notifications"
+  },
+  "home": {
+    "title": "Build faster with Vue 3",
+    "subtitle": "TypeScript, Pinia, REST-ready services, JWT auth helpers, i18n, TailwindCSS, Biome, and Remotion are already wired.",
+    "counter": "Count is {count}",
+    "maskedInput": "Masked input example"
+  },
+  "form": {
+    "title": "Create account",
+    "country": "Country",
+    "submit": "Create account",
+    "pleaseWait": "Please wait! Your account is being created.",
+    "success": "Success! Your account has been created.",
+    "fields": {
+      "username": "Username",
+      "email": "Email",
+      "age": "Age",
+      "password": "Password",
+      "passwordConfirmation": "Confirm password"
+    },
+    "placeholders": {
+      "username": "Enter username",
+      "email": "Enter email",
+      "age": "Enter age",
+      "password": "Enter password",
+      "passwordConfirmation": "Confirm password"
+    }
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language",
+    "english": "English",
+    "uzbek": "Uzbek",
+    "russian": "Russian"
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "goHome": "Go home",
+    "api": "Request failed. Please try again."
+  },
+  "validation": {
+    "required": "{field} is required.",
+    "min": "{field} is too short.",
+    "max": "{field} is too long.",
+    "alphaSpaces": "{field} can only contain letters and spaces.",
+    "email": "{field} must be a valid email address.",
+    "minValue": "{field} is too low.",
+    "maxValue": "{field} is too high.",
+    "excluded": "This value is not allowed.",
+    "countryExcluded": "Users from this location are not allowed.",
+    "passwordMismatch": "Passwords do not match.",
+    "invalid": "{field} is invalid."
+  }
 }

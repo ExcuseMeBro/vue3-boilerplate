@@ -1,30 +1,32 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
+interface DemoUser {
+  name: string
+  email: string
+  avatar: string
+}
+
 export const useUserStore = defineStore('user', () => {
-  const user = ref()
+  const user = ref<DemoUser | null>(null)
+  const nextActions = ref<string[]>([])
 
   function fetchUser() {
     user.value = {
-      name: '<NAME>',
-      email: '<EMAIL>',
-      avatar:
-        'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+      name: 'Demo User',
+      email: 'demo@example.com',
+      avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
     }
   }
 
-  // *** Next actions, ref, and reactive below ***
-  const nextActions = ref([])
-
-  function addNextAction(action: never) {
+  function addNextAction(action: string) {
     nextActions.value.push(action)
   }
 
   return {
     user,
-    fetchUser,
-    // comment there
     nextActions,
+    fetchUser,
     addNextAction,
   }
 })

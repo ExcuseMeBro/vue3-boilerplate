@@ -1,0 +1,68 @@
+{
+  "app": {
+    "name": "Vue 3 Boilerplate",
+    "tagline": "Современный стартер для масштабируемых приложений"
+  },
+  "nav": {
+    "home": "Главная",
+    "form": "Валидация формы",
+    "openMenu": "Открыть меню",
+    "search": "Поиск",
+    "notifications": "Уведомления"
+  },
+  "home": {
+    "title": "Создавайте быстрее с Vue 3",
+    "subtitle": "TypeScript, Pinia, REST-сервисы, JWT auth helpers, i18n, TailwindCSS, Biome и Remotion уже настроены.",
+    "counter": "Счёт: {count}",
+    "maskedInput": "Пример поля с маской"
+  },
+  "form": {
+    "title": "Создать аккаунт",
+    "country": "Страна",
+    "submit": "Создать аккаунт",
+    "pleaseWait": "Пожалуйста, подождите! Ваш аккаунт создаётся.",
+    "success": "Готово! Ваш аккаунт создан.",
+    "fields": {
+      "username": "Имя пользователя",
+      "email": "Email",
+      "age": "Возраст",
+      "password": "Пароль",
+      "passwordConfirmation": "Подтвердите пароль"
+    },
+    "placeholders": {
+      "username": "Введите имя пользователя",
+      "email": "Введите email",
+      "age": "Введите возраст",
+      "password": "Введите пароль",
+      "passwordConfirmation": "Подтвердите пароль"
+    }
+  },
+  "language": {
+    "label": "Язык",
+    "select": "Выберите язык",
+    "english": "Английский",
+    "uzbek": "Узбекский",
+    "russian": "Русский"
+  },
+  "theme": {
+    "toggle": "Переключить тему"
+  },
+  "errors": {
+    "notFound": "Страница не найдена",
+    "goHome": "На главную",
+    "api": "Запрос не выполнен. Попробуйте ещё раз."
+  },
+  "validation": {
+    "required": "{field} обязательно.",
+    "min": "{field} слишком короткое.",
+    "max": "{field} слишком длинное.",
+    "alphaSpaces": "{field} может содержать только буквы и пробелы.",
+    "email": "{field} должно быть корректным email-адресом.",
+    "minValue": "{field} слишком маленькое.",
+    "maxValue": "{field} слишком большое.",
+    "excluded": "Это значение не разрешено.",
+    "countryExcluded": "Пользователи из этого региона не разрешены.",
+    "passwordMismatch": "Пароли не совпадают.",
+    "invalid": "{field} неверное."
+  }
+}

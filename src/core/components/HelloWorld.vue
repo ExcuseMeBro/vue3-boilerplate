@@ -1,37 +1,46 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import CLanguageSwitcher from './common/CLanguageSwitcher.vue'
+import { useI18n } from 'vue-i18n'
 
-interface Props {
-  msg: string
-  test?: string
-}
+import CLanguageSwitcher from '@/core/components/common/CLanguageSwitcher.vue'
 
-defineProps<Props>()
-
+const { t } = useI18n()
 const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <section class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+        {{ t('app.tagline') }}
+      </p>
+      <h1 class="mt-4 text-4xl font-black tracking-tight sm:text-6xl">
+        {{ t('home.title') }}
+      </h1>
+      <p class="mt-4 text-base leading-7 text-base-content/70 sm:text-lg">
+        {{ t('home.subtitle') }}
+      </p>
+    </div>
 
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <br />
-    <input
-      v-maska
-      data-maska="#-#-#"
-      type="text"
-      placeholder="0-0-0"
-      class="input input-bordered w-full max-w-xs"
-    />
-    <br />
-    <CLanguageSwitcher />
-  </div>
+    <div class="card w-full max-w-md border border-base-300 bg-base-100 shadow-xl">
+      <div class="card-body gap-4">
+        <button type="button" class="btn btn-primary" @click="count++">
+          {{ t('home.counter', { count }) }}
+        </button>
+
+        <label class="form-control">
+          <span class="label-text mb-2">{{ t('home.maskedInput') }}</span>
+          <input
+            v-maska
+            data-maska="#-#-#"
+            type="text"
+            placeholder="0-0-0"
+            class="input input-bordered w-full"
+          />
+        </label>
+
+        <CLanguageSwitcher class="sm:hidden" />
+      </div>
+    </div>
+  </section>
 </template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>

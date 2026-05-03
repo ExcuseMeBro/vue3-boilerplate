@@ -1,8 +1,8 @@
 export interface IFormField {
   name: string
-  type: string
+  type: 'text' | 'email' | 'number' | 'password'
   placeholder?: string
-  label?: string
+  label: string
   class?: string
-  mask?: any
+  mask?: string
 }

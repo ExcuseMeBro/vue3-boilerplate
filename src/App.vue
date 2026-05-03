@@ -1,28 +1,20 @@
 <template>
   <router-view v-slot="{ Component }">
-    <div :key="detectLayout">
-      <component :is="detectLayout">
-        <Component :is="Component" />
-      </component>
-    </div>
+    <component :is="detectLayout">
+      <Component :is="Component" />
+    </component>
   </router-view>
 </template>
 
 <script setup lang="ts">
-import LDefault from '@/layouts/LDefault.vue'
+import type { Component } from 'vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
+import LDefault from '@/layouts/LDefault.vue'
+
 const route = useRoute()
+const layouts = new Map<string, Component>([['default', LDefault]])
 
-const layouts = new Map<any, any>()
-
-// *** You can set below another layout components
-layouts.set('default', LDefault)
-
-const detectLayout = computed(() => {
-  return layouts.get(route.meta.layout) || LDefault
-})
+const detectLayout = computed(() => layouts.get(String(route.meta.layout ?? 'default')) ?? LDefault)
 </script>
-
-<style scoped></style>

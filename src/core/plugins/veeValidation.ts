@@ -1,30 +1,43 @@
 import {
-  Form as VeeForm,
-  Field as VeeField,
+  alpha_spaces as alphaSpaces,
+  confirmed,
+  email,
+  not_one_of as excluded,
+  max,
+  max_value as maxVal,
+  min,
+  min_value as minVal,
+  required,
+} from '@vee-validate/rules'
+import {
+  configure,
   defineRule,
   ErrorMessage,
-  configure,
+  Field as VeeField,
+  Form as VeeForm,
 } from 'vee-validate'
+import type { App } from 'vue'
+import i18n from '@/core/plugins/i18n'
 
-import {
-  required,
-  min,
-  max,
-  alpha_spaces as alphaSpaces,
-  email,
-  min_value as minVal,
-  max_value as maxVal,
-  not_one_of as excluded,
-  confirmed,
-} from '@vee-validate/rules'
+const validationMessageKeys: Record<string, string> = {
+  required: 'validation.required',
+  min: 'validation.min',
+  max: 'validation.max',
+  alpha_spaces: 'validation.alphaSpaces',
+  email: 'validation.email',
+  min_value: 'validation.minValue',
+  max_value: 'validation.maxValue',
+  excluded: 'validation.excluded',
+  country_excluded: 'validation.countryExcluded',
+  password_mismatch: 'validation.passwordMismatch',
+}
 
 export default {
-  install(app: any) {
+  install(app: App) {
     app.component('VeeForm', VeeForm)
     app.component('VeeField', VeeField)
     app.component('ErrorMessage', ErrorMessage)
 
-    // *** Write any validation messages here ***
     defineRule('required', required)
     defineRule('min', min)
     defineRule('max', max)
@@ -37,23 +50,10 @@ export default {
     defineRule('password_mismatch', confirmed)
 
     configure({
-      generateMessage: (context) => {
-        // *** Write any validation messages here ***
-        const messages = {
-          required: `This field ${context.field} is required.`,
-          min: `This field ${context.field} is too short.`,
-          max: `This field ${context.field} is too long.`,
-          alpha_spaces: `This field ${context.field} can only contain letters and spaces.`,
-          email: `This field ${context.field} is not a valid email.`,
-          min_value: `This field ${context.field} is too low.`,
-          max_value: `This field ${context.field} is too high.`,
-          excluded: 'This field is not allowed.',
-          country_excluded: 'We do not allow users from this location',
-          password_mismatch: `This field ${context.field} does not match.`,
-          invalid: `The field ${context.field} is invalid`,
-        }
+      generateMessage: ({ field, rule }) => {
+        const messageKey = validationMessageKeys[rule?.name ?? ''] ?? 'validation.invalid'
 
-        return eval(`messages.${context?.rule?.name ?? 'invalid'}`)
+        return i18n.global.t(messageKey, { field })
       },
       validateOnBlur: true,
       validateOnChange: true,

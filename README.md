@@ -1,25 +1,136 @@
-# Vue 3 Boilerplate template
+# Vue 3 Boilerplate
 
-## Project contains these technology
+Clean Vue starter for production apps.
 
-- Vue 3
-- TypeScript
-- Vite
-- TailwindCSS
-- Daisy UI
-- i18n
-- Vue-router
-- Pinia (Write Composition API way)
-- VueUse (most useful composables libs) 🤝
-- maska (input mask libs)
-- VeeValidate (form validation) 🚨
+## What's inside
 
-## Recommended IDEs Setup
+- Vue 3 + Vite + TypeScript
+- Pinia store
+- Vue Router
+- REST API client
+- JWT auth helpers
+- i18n: English, Uzbek, and Russian
+- TailwindCSS + DaisyUI
+- VeeValidate + Maska
+- Biome for linting and formatting
+- Remotion for video and animation work
 
-### Free to use IDE
+No GraphQL. REST-first by default.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Quick start
 
-### Premium to use IDE
+```bash
+npm install
+cp .env.example .env
+npm run dev
+```
 
-- [WebStorm](https://www.jetbrains.com/webstorm/) + [Volar](https://plugins.jetbrains.com/plugin/14806-volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://plugins.jetbrains.com/plugin/18344-typescript-vue-plugin).
+Open `http://localhost:3000`.
+
+## Environment
+
+```env
+VITE_API_BASE_URL=http://localhost:8000/api
+VITE_DEV_PORT=3000
+```
+
+## Scripts
+
+```bash
+npm run dev          # start Vite dev server
+npm run build        # type-check and build
+npm run preview      # preview production build
+npm run type-check   # run vue-tsc
+npm run lint         # fix lint and format issues with Biome
+npm run lint:ci      # CI lint check
+npm run format       # format files
+npm run audit        # npm security audit
+npm run video:preview # open Remotion Studio
+npm run video:render  # render starter video to out/starter-video.mp4
+```
+
+## REST and JWT
+
+API helpers live here:
+
+```text
+src/core/services/api.service.ts
+src/core/services/token.service.ts
+src/modules/auth/services/auth.service.ts
+src/modules/auth/stores/auth.store.ts
+```
+
+Default auth endpoints:
+
+```text
+POST /auth/login
+POST /auth/register
+GET  /auth/me
+POST /auth/refresh
+POST /auth/logout
+```
+
+JWT access token is sent as:
+
+```http
+Authorization: Bearer <token>
+```
+
+## i18n
+
+Translations live here:
+
+```text
+src/core/languages/en.json
+src/core/languages/uz.json
+src/core/languages/ru.json
+```
+
+Use translations in components:
+
+```ts
+const { t } = useI18n()
+t('nav.home')
+```
+
+## Remotion
+
+Starter composition lives here:
+
+```text
+src/remotion
+```
+
+Preview:
+
+```bash
+npm run video:preview
+```
+
+Render:
+
+```bash
+npm run video:render
+```
+
+## Project structure
+
+```text
+src/
+  core/       shared components, plugins, services, models
+  layouts/    app layouts
+  modules/    feature modules
+  remotion/   video compositions
+  utils/      small helpers
+```
+
+## Recommended IDE
+
+Use VS Code with:
+
+- Vue Official extension
+- Biome extension
+
+## License
+
+MIT

@@ -1,3 +1,68 @@
 {
-  "hi": "Salom"
+  "app": {
+    "name": "Vue 3 Boilerplate",
+    "tagline": "Kengaytiriladigan ilovalar uchun zamonaviy starter"
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "form": "Forma validatsiyasi",
+    "openMenu": "Menyuni ochish",
+    "search": "Qidirish",
+    "notifications": "Bildirishnomalar"
+  },
+  "home": {
+    "title": "Vue 3 bilan tezroq yarating",
+    "subtitle": "TypeScript, Pinia, REST uchun tayyor servislar, JWT auth yordamchilari, i18n, TailwindCSS, Biome va Remotion sozlab qo‘yilgan.",
+    "counter": "Hisob: {count}",
+    "maskedInput": "Maskali input namunasi"
+  },
+  "form": {
+    "title": "Hisob yaratish",
+    "country": "Davlat",
+    "submit": "Hisob yaratish",
+    "pleaseWait": "Iltimos, kuting! Hisobingiz yaratilmoqda.",
+    "success": "Muvaffaqiyatli! Hisobingiz yaratildi.",
+    "fields": {
+      "username": "Foydalanuvchi nomi",
+      "email": "Email",
+      "age": "Yosh",
+      "password": "Parol",
+      "passwordConfirmation": "Parolni tasdiqlash"
+    },
+    "placeholders": {
+      "username": "Foydalanuvchi nomini kiriting",
+      "email": "Email kiriting",
+      "age": "Yoshingizni kiriting",
+      "password": "Parol kiriting",
+      "passwordConfirmation": "Parolni tasdiqlang"
+    }
+  },
+  "language": {
+    "label": "Til",
+    "select": "Tilni tanlang",
+    "english": "Inglizcha",
+    "uzbek": "O‘zbekcha",
+    "russian": "Ruscha"
+  },
+  "theme": {
+    "toggle": "Mavzuni almashtirish"
+  },
+  "errors": {
+    "notFound": "Sahifa topilmadi",
+    "goHome": "Bosh sahifaga qaytish",
+    "api": "So‘rov bajarilmadi. Qayta urinib ko‘ring."
+  },
+  "validation": {
+    "required": "{field} majburiy.",
+    "min": "{field} juda qisqa.",
+    "max": "{field} juda uzun.",
+    "alphaSpaces": "{field} faqat harflar va bo‘shliqlardan iborat bo‘lishi kerak.",
+    "email": "{field} to‘g‘ri email manzil bo‘lishi kerak.",
+    "minValue": "{field} qiymati juda kichik.",
+    "maxValue": "{field} qiymati juda katta.",
+    "excluded": "Bu qiymatga ruxsat berilmagan.",
+    "countryExcluded": "Bu hududdagi foydalanuvchilarga ruxsat berilmagan.",
+    "passwordMismatch": "Parollar mos emas.",
+    "invalid": "{field} noto‘g‘ri."
+  }
 }
