@@ -12,8 +12,9 @@
   },
   "home": {
     "title": "Vue 3 bilan tezroq yarating",
-    "subtitle": "TypeScript, Pinia, REST uchun tayyor servislar, JWT auth yordamchilari, i18n, TailwindCSS, Biome va Remotion sozlab qo‘yilgan.",
+    "subtitle": "TypeScript, Pinia, REST uchun tayyor servislar, JWT auth yordamchilari, i18n, TailwindCSS, Biome va AutoAnimate sozlab qo‘yilgan.",
     "counter": "Hisob: {count}",
+    "autoAnimateHint": "AutoAnimate bu layout o‘tishini silliq animatsiya qiladi.",
     "maskedInput": "Maskali input namunasi"
   },
   "form": {

@@ -10,7 +10,7 @@ const count = ref(0)
 
 <template>
   <section class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
-    <div>
+    <div class="animate-fade-up">
       <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
         {{ t('app.tagline') }}
       </p>
@@ -23,10 +23,14 @@ const count = ref(0)
     </div>
 
     <div class="card w-full max-w-md border border-base-300 bg-base-100 shadow-xl">
-      <div class="card-body gap-4">
+      <div v-auto-animate class="card-body gap-4">
         <button type="button" class="btn btn-primary" @click="count++">
           {{ t('home.counter', { count }) }}
         </button>
+
+        <p v-if="count > 0" class="rounded-box bg-base-200 px-4 py-3 text-sm text-base-content/70">
+          {{ t('home.autoAnimateHint') }}
+        </p>
 
         <label class="form-control">
           <span class="label-text mb-2">{{ t('home.maskedInput') }}</span>

@@ -12,8 +12,9 @@
   },
   "home": {
     "title": "Создавайте быстрее с Vue 3",
-    "subtitle": "TypeScript, Pinia, REST-сервисы, JWT auth helpers, i18n, TailwindCSS, Biome и Remotion уже настроены.",
+    "subtitle": "TypeScript, Pinia, REST-сервисы, JWT auth helpers, i18n, TailwindCSS, Biome и AutoAnimate уже настроены.",
     "counter": "Счёт: {count}",
+    "autoAnimateHint": "AutoAnimate плавно анимирует этот переход layout.",
     "maskedInput": "Пример поля с маской"
   },
   "form": {

@@ -1,3 +1,4 @@
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import { vMaska } from 'maska/vue'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
@@ -13,6 +14,7 @@ import router from '@/router'
 const app = createApp(App)
 
 app.use(createPinia())
+app.use(autoAnimatePlugin)
 app.use(router)
 app.use(i18n)
 app.use(VeeValidatePlugin)

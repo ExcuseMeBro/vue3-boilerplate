@@ -12,8 +12,9 @@
   },
   "home": {
     "title": "Build faster with Vue 3",
-    "subtitle": "TypeScript, Pinia, REST-ready services, JWT auth helpers, i18n, TailwindCSS, Biome, and Remotion are already wired.",
+    "subtitle": "TypeScript, Pinia, REST-ready services, JWT auth helpers, i18n, TailwindCSS, Biome, and AutoAnimate are already wired.",
     "counter": "Count is {count}",
+    "autoAnimateHint": "AutoAnimate handles this smooth layout transition.",
     "maskedInput": "Masked input example"
   },
   "form": {

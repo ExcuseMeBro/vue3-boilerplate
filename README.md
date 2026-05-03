@@ -13,7 +13,7 @@ Clean Vue starter for production apps.
 - TailwindCSS + DaisyUI
 - VeeValidate + Maska
 - Biome for linting and formatting
-- Remotion for video and animation work
+- AutoAnimate for lightweight UI animations
 
 No GraphQL. REST-first by default.
 
@@ -45,8 +45,6 @@ npm run lint         # fix lint and format issues with Biome
 npm run lint:ci      # CI lint check
 npm run format       # format files
 npm run audit        # npm security audit
-npm run video:preview # open Remotion Studio
-npm run video:render  # render starter video to out/starter-video.mp4
 ```
 
 ## REST and JWT
@@ -93,24 +91,16 @@ const { t } = useI18n()
 t('nav.home')
 ```
 
-## Remotion
+## Animations
 
-Starter composition lives here:
+Lightweight UI animations use `@formkit/auto-animate`.
 
-```text
-src/remotion
-```
-
-Preview:
-
-```bash
-npm run video:preview
-```
-
-Render:
-
-```bash
-npm run video:render
+```vue
+<template>
+  <div v-auto-animate>
+    <p v-if="isVisible">Animated content</p>
+  </div>
+</template>
 ```
 
 ## Project structure
@@ -120,7 +110,6 @@ src/
   core/       shared components, plugins, services, models
   layouts/    app layouts
   modules/    feature modules
-  remotion/   video compositions
   utils/      small helpers
 ```
 

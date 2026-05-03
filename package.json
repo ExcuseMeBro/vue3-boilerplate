@@ -2,7 +2,7 @@
   "name": "vue3-boilerplate",
   "private": true,
   "version": "2.0.0",
-  "description": "Production-ready Vue 3 starter with Vite, TypeScript, Pinia, REST, JWT auth, i18n, TailwindCSS, Biome, and Remotion.",
+  "description": "Production-ready Vue 3 starter with Vite, TypeScript, Pinia, REST, JWT auth, i18n, TailwindCSS, Biome, and AutoAnimate.",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -13,11 +13,10 @@
     "lint": "biome check --write .",
     "lint:ci": "biome ci .",
     "format": "biome format --write .",
-    "video:preview": "remotion studio src/remotion/index.ts",
-    "video:render": "remotion render src/remotion/index.ts StarterVideo out/starter-video.mp4",
     "audit": "npm audit --audit-level=moderate"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.9.0",
     "@vee-validate/rules": "^4.15.1",
     "@vueuse/core": "^14.3.0",
     "maska": "^3.2.0",
@@ -29,22 +28,15 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.14",
-    "@remotion/cli": "4.0.456",
     "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-vue": "^6.0.6",
     "autoprefixer": "^10.5.0",
     "daisyui": "^4.12.24",
     "postcss": "^8.5.13",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "remotion": "4.0.456",
     "tailwindcss": "^3.4.19",
     "typescript": "^6.0.3",
     "vite": "^8.0.10",
-    "vue-tsc": "^3.2.7",
-    "zod": "4.3.6"
+    "vue-tsc": "^3.2.7"
   },
   "engines": {
     "node": ">=20.19.0",
